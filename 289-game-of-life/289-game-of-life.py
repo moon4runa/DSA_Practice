@@ -14,8 +14,6 @@ class Solution:
         m = len(board)
         n = len(board[0])
         for i in range(len(board)):
-            res.append([0]*len(board[0]))
-        for i in range(len(board)):
             for j in range(len(board[0])):
                 c = 0
                 if i+1 < m:
