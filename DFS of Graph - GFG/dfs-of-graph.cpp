@@ -6,11 +6,10 @@ using namespace std;
 class Solution {
   public:
     void dfs(int node, vector<int> adj[], vector<int> &sol, vector<int> &vis){
-        if(adj[node].size() == 0) return;
+        sol.push_back(node);
+        vis[node] = 1;
         for(auto it: adj[node]){
             if(vis[it]==0){
-                sol.push_back(it);
-                vis[it] = 1;
                 dfs(it, adj, sol, vis);
             }
         }
@@ -26,8 +25,6 @@ class Solution {
        int i;
        for(int i=0; i<V; i++){
            if(vis[i] == 0){
-               sol.push_back(i);
-               vis[i] = 1;
                dfs(i, adj, sol, vis);
            }
        }
