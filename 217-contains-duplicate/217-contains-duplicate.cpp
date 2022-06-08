@@ -7,10 +7,8 @@ public:
                 count[it] = 1;
             }
             else{
-                count[it] += 1;
-                if(count[it] > 1){
                     return true;
-                }
+                
             }
         }
         return false;
