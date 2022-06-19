@@ -18,7 +18,7 @@ class Solution{
 
         for(int i=0; i<n; i++){
             if(st.empty()){
-                st.push(0);
+                st.push(i);
                 continue;
             }
             while(!st.empty() && arr[st.top()] > arr[i]){
