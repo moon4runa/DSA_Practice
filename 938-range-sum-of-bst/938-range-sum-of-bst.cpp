@@ -21,11 +21,16 @@ public:
     // }
     void sum(TreeNode* root, int low, int high, int &ans){
         if(!root) return;
+        
+        if(root->val > low){
+            sum(root->left, low, high, ans);
+        }
+        if(root->val < high) sum(root->right, low, high, ans);
+        
         if (root->val >= low && root->val <= high){
             ans += root-> val;
         }
-        if(root->left) sum(root->left, low, high, ans);
-        if(root->right) sum(root->right, low, high, ans);
+        
     }
     
     
