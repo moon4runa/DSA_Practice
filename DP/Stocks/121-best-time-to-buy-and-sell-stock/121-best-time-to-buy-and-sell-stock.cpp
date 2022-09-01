@@ -1,6 +1,7 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
+        // TC: O(n), SC: O(1)
             int n = prices.size();
             int min_day = prices[0];
             int max_profit = 0;
