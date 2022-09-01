@@ -4,6 +4,9 @@ public:
 
     
     int maxProfit(vector<int>& prices) {
+        
+        
+        // Space Optimization
         int n = prices.size();
         int dp1 = 0;
         int dp2 = 0;
