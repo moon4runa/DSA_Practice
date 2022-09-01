@@ -5,25 +5,35 @@ public:
     
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
-        vector<vector<int>> dp(n+1, vector<int>(2,-1));
-        int profit;
-        dp[n][1] = dp[n][0] = 0;
+        int dp1 = 0;
+        int dp2 = 0;
         for(int i=n-1; i>=0; i--){
-            for(int flag = 0; flag<=1; flag++){
-                if(flag == 0){
-                    profit = max(dp[i+1][0], -prices[i]+dp[i+1][1]);
-                }
-                if(flag == 1){
-                    profit = max(dp[i+1][1], prices[i]+dp[i+1][0]);
-                }
-                
-                dp[i][flag] = profit;
-            }
+            int temp = dp1;
+            dp1 = max(dp1, -prices[i]+dp2);
+            dp2 = max(dp2, prices[i]+temp);
         }
+        return dp1;
+        
+        
+//         vector<vector<int>> dp(n+1, vector<int>(2,-1));
+//         int profit;
+//         dp[n][1] = dp[n][0] = 0;
+//         for(int i=n-1; i>=0; i--){
+//             for(int flag = 0; flag<=1; flag++){
+//                 if(flag == 0){
+//                     profit = max(dp[i+1][0], -prices[i]+dp[i+1][1]);
+//                 }
+//                 if(flag == 1){
+//                     profit = max(dp[i+1][1], prices[i]+dp[i+1][0]);
+//                 }
+                
+//                 dp[i][flag] = profit;
+//             }
+//         }
         
         
         
-     return dp[0][0]; 
+//      return dp[0][0]; 
     }
 };
 
