@@ -1,3 +1,6 @@
+// Time Complexity: O(n*m) -> touching every element only once
+// Space Complexity: O(1)
+
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
