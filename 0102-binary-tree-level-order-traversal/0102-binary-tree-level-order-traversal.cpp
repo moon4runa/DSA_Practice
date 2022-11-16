@@ -16,20 +16,20 @@ public:
         
         if(!root) return res;
         
-        queue<TreeNode* > q;
+        queue<TreeNode* > q; // 15 7 
         q.push(root);
         
         while(!q.empty()){
-            int level_size = q.size();
-            vector<int> temp;
-            while(level_size--){
-                TreeNode* node = q.front();
+            int level_size = q.size(); // 2
+            vector<int> temp; // 9 20
+            while(level_size--){ // 0
+                TreeNode* node = q.front(); // 20
                 q.pop();
-                temp.push_back(node->val);
+                temp.push_back(node->val); 
                 if(node->left) q.push(node->left);
                 if(node->right) q.push(node->right);
             }
-            res.push_back(temp);
+            res.push_back(temp); // [[3], [9, 20 ], [15, 7]]
         }
         
         
