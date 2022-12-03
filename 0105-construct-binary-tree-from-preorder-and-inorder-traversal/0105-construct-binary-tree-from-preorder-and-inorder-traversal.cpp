@@ -15,22 +15,29 @@ public:
         return solve(0, 0, inorder.size()-1, preorder, inorder);
     }
     
-    TreeNode* solve(int rootIndex, int inStart, int inEnd, vector<int>&preorder, vector<int>& inorder){
-        if(rootIndex > preorder.size() - 1 || inStart > inEnd) return NULL;
+    TreeNode* solve(int rootIndex, int start, int end, vector<int> &preorder, vector<int>& inorder){
+        // Base Case
+        if(rootIndex > preorder.size() - 1 || start > end) return NULL;
+        
+        // Create root node;
         TreeNode* root = new TreeNode(preorder[rootIndex]);
-        int inIndex = 0;
-        for(int i=inStart; i<=inEnd; i++){
+        
+        // Search for root element in inorder  traversal
+        int index;
+        for(int i=start; i<=end; i++){
             if(inorder[i] == root->val){
-                inIndex = i;
+                index = i;
                 break;
             }
         }
         
-        root->left = solve(rootIndex + 1, inStart, inIndex-1, preorder, inorder);
-        root->right = solve(rootIndex + inIndex - inStart + 1,inIndex+1, inEnd, preorder, inorder);
+        // left and right subtrees
+        root->left = solve(rootIndex + 1, start, index -1, preorder, inorder);
+        root->right = solve(rootIndex + (index - start + 1), index+1, end, preorder, inorder);
         
         
         return root;
-        
     }
+    
+    
 };
