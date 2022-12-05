@@ -13,6 +13,8 @@ class Solution {
 public:
     
     TreeNode* solve(int rootIndex, int start, int end, vector<int>& inorder, vector<int>& postorder){
+        
+        // Base Case
         if(rootIndex < 0 || start > end) return NULL;
         
         TreeNode* root = new TreeNode(postorder[rootIndex]);
