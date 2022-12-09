@@ -12,7 +12,7 @@
 class Solution {
 public:
     TreeNode* createBST(vector<int> &nums, int start, int end){
-        if(start > end) return NULL;
+        if(start > end) return NULL;  // Base case
         
         int mid = (start+end)/2;
         TreeNode* root = new TreeNode(nums[mid]);
