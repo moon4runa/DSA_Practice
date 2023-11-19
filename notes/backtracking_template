@@ -1,0 +1,13 @@
+# pseudo code
+void solve(&v){
+  if(isSolved() is True){
+      print/save
+  }
+  for(c in all choices){
+    if(isValid() is True){
+      changes in v
+      solve(v)
+      revert changes in v
+    }
+  }
+}
